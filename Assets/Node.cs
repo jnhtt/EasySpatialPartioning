@@ -12,19 +12,19 @@ namespace Utils
 		bool IsLeaf();
 	}
 
-	public class Node : INode
+	public class BSPNode : INode
 	{
-		protected Node positive;
-		protected Node negative;
+		protected BSPNode positive;
+		protected BSPNode negative;
 		protected Plane plane;
 		protected Action exec;
 
-		public static Node CreateLeaf(Action exec)
+		public static BSPNode CreateLeaf(Action exec)
 		{
-			return new Node(null, null, null, exec);
+			return new BSPNode(null, null, null, exec);
 		}
 
-		public Node(Plane plane, Node posi, Node nega, Action exec)
+		public BSPNode(Plane plane, BSPNode posi, BSPNode nega, Action exec)
 		{
 			this.plane = plane;
 			this.positive = posi;

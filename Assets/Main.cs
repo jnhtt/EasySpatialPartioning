@@ -11,7 +11,7 @@ public class Main : MonoBehaviour
 	[SerializeField]
 	private Renderer sphereRenderer;
 
-	private Utils.Node root;
+	private Utils.INode root;
 
 	private void Awake()
 	{
@@ -40,18 +40,18 @@ public class Main : MonoBehaviour
 	private void BuildTree()
 	{
 		// 1
-		root = new Utils.Node(
+		root = new Utils.BSPNode(
 			new Utils.Plane(Vector3.right, 0f),
-			new Utils.Node(
+			new Utils.BSPNode(
 				new Utils.Plane(Vector3.up, 0f),
-				Utils.Node.CreateLeaf(ChangeColorRed),
-				Utils.Node.CreateLeaf(ChangeColorBlue),
+				Utils.BSPNode.CreateLeaf(ChangeColorRed),
+				Utils.BSPNode.CreateLeaf(ChangeColorBlue),
 				null
 				),
-			new Utils.Node(
+			new Utils.BSPNode(
 				new Utils.Plane(Vector3.up, 0f),
-				Utils.Node.CreateLeaf(ChangeColorGreen),
-				Utils.Node.CreateLeaf(ChangeColorYellow),
+				Utils.BSPNode.CreateLeaf(ChangeColorGreen),
+				Utils.BSPNode.CreateLeaf(ChangeColorYellow),
 				null
 				),
 			null
